@@ -29,7 +29,7 @@ export class RecycleCard {
                 this.state = 'TRACK.IN_CONTAINER';
                 break;
             case 3:
-                this.state = 'TRACK.RECOLLIT';
+                this.state = 'TRACK.COLLECTED';
                 break;
             case 4:
                 this.state = 'TRACK.RECICLED';
