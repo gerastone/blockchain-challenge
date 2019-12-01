@@ -47,7 +47,6 @@ export class ProfilePage {
     this.store.dispatch(new RouterGo({ to: { path: 'login' } }))
   }
   goBack() {
-    localStorage.clear();
     this.store.dispatch(new RouterGo({ to: { path: 'home' } }))
   }
 }

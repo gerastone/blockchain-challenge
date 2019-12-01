@@ -52,7 +52,7 @@
         "IN_CONTAINER_PROCESS": "Al contenidor",
         "COLLECTED_PROCESS": "Residu recollit",
         "RECICLED_PROCESS": "Residu reciclat",
-        "VALID": "Valid"
+        "VALID": "Validar"
     },
     "TRASH": {
         "GLASS": "Vidre",
