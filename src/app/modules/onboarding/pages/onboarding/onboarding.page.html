@@ -6,30 +6,21 @@
         <ion-slide *ngFor="let item of onboardingItems; let i = index">
           <div class="onboarding-content-slides-item">
             <div class="onboarding-content-slides-item-img">
-              <img class="onboarding-content-slides-item-img-image" [src]="backgroundImage">
+              <img class="onboarding-content-slides-item-img-image" [src]="item.backgroundImage">
             </div>
             <div class="onboarding-content-slides-item-info">
               <div class="onboarding-content-slides-item-info-title">{{item.title | translate}}</div>
               <div class="onboarding-content-slides-item-info-text">{{item.body | translate}}</div>
             </div>
-          </div>
-        </ion-slide>
-        <ion-slide>
-          <div class="onboarding-content-slides-item">
-            <div class="onboarding-content-slides-item-img">
-              <img class="onboarding-content-slides-item-img-image" [src]="backgroundImage">
-            </div>
-            <div class="onboarding-content-slides-item-login">
-              <div class="onboarding-content-slides-item-login-title">Título</div>
-              <blockchain-button class="onboarding-content-slides-item-login-button" [primary]="true"
-                [label]="'LABELS.LOGIN'" (click)="goLogin()"></blockchain-button>
-            </div>
+            <blockchain-button *ngIf="onboardingItems.length - 1 == i"
+              class="onboarding-content-slides-item-login-button" [primary]="true" [label]="'LABELS.LOGIN'"
+              (click)="goLogin()"></blockchain-button>
           </div>
         </ion-slide>
       </ion-slides>
     </div>
 
-    <div class="onboarding-navigator" *ngIf="actualIndex < onboardingItems.length">
+    <div class="onboarding-navigator" *ngIf="actualIndex < onboardingItems.length -1">
       <div class="onboarding-navigator-back">
         <i class="material-icons" (click)="slidePrev()" *ngIf="actualIndex > 0">arrow_back</i>
       </div>

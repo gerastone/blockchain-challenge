@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { EHomeActions, TrackIdActionSuccess, TrackListActionSuccess, TrackListActionError, TrackIdActionError, BalanceActionSuccess } from '../actions/home.action';
+import { EHomeActions, TrackIdActionSuccess, TrackListActionSuccess, TrackListActionError, TrackIdActionError, TrackScanActionSuccess, TrackScanActionError, BalanceActionSuccess } from '../actions/home.action';
 import { map } from 'rxjs/operators';
 import { HomeService } from '../../services/home.service';
 import { TrackService } from '../../services/tracks.service';
 import { EthereumService } from 'src/app/core/services/ethereum.service';
+import { TrackScanService } from '../../services/trackScan.service';
+import { ShowAlertAction } from 'src/app/core/store/actions/utility.action';
 
 @Injectable()
 export class HomeEffects {
@@ -14,7 +16,8 @@ export class HomeEffects {
         private store: Store<any>,
         private homeService: HomeService,
         private trackService: TrackService,
-        private ethereumService: EthereumService
+        private ethereumService: EthereumService,
+        private trackScanService: TrackScanService
     ) {
 
     }
@@ -64,6 +67,21 @@ export class HomeEffects {
                     console.log('VALIDATE RESULT', result)
                     return this.store.dispatch(new BalanceActionSuccess(result));
                 })
+            })
+    );
+
+    @Effect({ dispatch: false })
+    scan$ = this.actions$.pipe(
+        ofType(EHomeActions.TRACK_SCAN),
+        map((payload: any) => {
+            this.trackScanService.create(payload.payload).subscribe(response => {
+                console.log(response);
+                this.store.dispatch(new ShowAlertAction({ title: 'ALERT.SUCCESS', message: 'ALERT.SCAN_CODE' }))
+                return this.store.dispatch(new TrackScanActionSuccess(response));
+            }, error => {
+                this.store.dispatch(new ShowAlertAction({ title: 'ALERT.ERROR', message: 'ERROR.SCAN_CODE' }))
+                return this.store.dispatch(new TrackScanActionError(error));
+            })
         })
     );
 }

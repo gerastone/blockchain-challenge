@@ -12,11 +12,13 @@ import { RecycleCard } from './components/recycle-card/recycle-card.component';
 import { TrackDetailPage } from './pages/track-detail/track-detail.page';
 import { TrackDetailCard } from './components/track-detail-card/track-detail-card.component';
 import { TrackService } from './services/tracks.service';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { TrackScanService } from './services/trackScan.service';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'home', component: HomePage },
-  { path: 'detail', component: TrackDetailPage}
+  { path: 'detail', component: TrackDetailPage }
 ];
 
 
@@ -40,7 +42,9 @@ const routes: Routes = [
   ],
   providers: [
     HomeService,
-    TrackService
+    TrackService,
+    BarcodeScanner,
+    TrackScanService
   ]
 })
 export class HomePageModule { }

@@ -3,11 +3,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { IAppState } from 'src/app/core/store/state/app.state';
 import { Store, select } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { homeState } from '../../store/selectors/home.selector';
-import { TrackListAction, BalanceAction } from '../../store/actions/home.action';
+import { TrackListAction, TrackScanAction, BalanceAction } from '../../store/actions/home.action';
 import { Subscription } from 'rxjs';
 import { RouterGo } from 'src/app/core/store/actions/utility.action';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,16 @@ export class HomePage {
     private store: Store<IAppState>,
     private route: ActivatedRoute,
     private translateService: TranslateService,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    private barcodeScanner: BarcodeScanner,
+    private platform: Platform) {
+    this.platform.backButton.subscribeWithPriority(99999, () => {
+      document.addEventListener('backbutton', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log('hello');
+      }, false);
+    });
   }
 
 
@@ -53,6 +63,15 @@ export class HomePage {
         value: track
       }
     }));
+  }
+
+  scan() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+      this.store.dispatch(new TrackScanAction({ ticketCode: barcodeData.text }))
+    }).catch(err => {
+      console.log('Error', err);
+    });
   }
 
 

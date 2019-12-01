@@ -13,7 +13,10 @@ export enum EHomeActions {
     GET_BALANCE_ERROR = '[Home] Get Balance Error',
     VALIDATE_ITEM_ACTION = '[Home] Validate Item',
     VALIDATE_ITEM_SUCCESS = '[Home] Validate Item Success',
-    VALIDATE_ITEM_ERROR = '[Home] Validate Item Error'
+    VALIDATE_ITEM_ERROR = '[Home] Validate Item Error',
+    TRACK_SCAN = '[Home] TRACK Scan',
+    TRACK_SCAN_SUCCESS = '[Home] TRACK Scan Success',
+    TRACK_SCAN_ERROR = '[Home] TRACK Scan Error'
 }
 
 export class TrackListAction implements Action {
@@ -73,6 +76,20 @@ export class ValidateItemActionSuccess implements Action {
 
 export class ValidateItemActionError implements Action {
     readonly type = EHomeActions.VALIDATE_ITEM_ERROR;
+}    
+
+export class TrackScanAction implements Action {
+    readonly type = EHomeActions.TRACK_SCAN;
+    constructor(public payload?: any) { }
+}
+
+export class TrackScanActionSuccess implements Action {
+    readonly type = EHomeActions.TRACK_SCAN_SUCCESS;
+    constructor(public payload: any) { }
+}
+
+export class TrackScanActionError implements Action {
+    readonly type = EHomeActions.TRACK_SCAN_ERROR;
     constructor(public payload: any) { }
 }
 
@@ -89,3 +106,6 @@ export type HomeUnionAction =
     | ValidateItemAction
     | ValidateItemActionSuccess
     | ValidateItemActionError
+    | TrackScanAction
+    | TrackScanActionSuccess
+    | TrackScanActionError

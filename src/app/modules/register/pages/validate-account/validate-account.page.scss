@@ -3,7 +3,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background: white;
   &-error {
     font-family: Roboto;
@@ -32,6 +31,9 @@
     }
 
     &-icon {
+
+      margin: 10% auto;
+      width: 30%;
       text-align: center;
       display: flex;
       flex-direction: column;

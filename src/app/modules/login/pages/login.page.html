@@ -1,14 +1,14 @@
 <div class="login">
     <div class="login-header">
-        <i class="icon-blockchain_icon login-header-icon">
-        </i>
+        <img class="icon-blockchain_icon login-header-icon" src="assets/imgs/img-icono@3x.png">
         <div class="login-header-title">
             {{'LABELS.WELCOME' | translate}}
         </div>
     </div>
     <div class="login-content">
         <ion-item class="login-content-item">
-            <ion-input [(ngModel)]="login.username" type="email" placeholder="{{'LABELS.EMAIL' | translate}}"></ion-input>
+            <ion-input [(ngModel)]="login.username" type="email" placeholder="{{'LABELS.EMAIL' | translate}}">
+            </ion-input>
         </ion-item>
         <ion-item class="login-content-item">
             <ion-input [(ngModel)]="login.password" type="password" placeholder="{{'LABELS.PASSWORD' | translate}}">

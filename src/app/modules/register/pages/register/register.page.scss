@@ -18,7 +18,7 @@
   }
 
   &-header {
-    height: 20%;
+    height: 30%;
     &-close {
       display: flex;
       flex-direction: row;
@@ -38,6 +38,8 @@
     }
 
     &-icon {
+      margin: 10% auto;
+      width: 50%;
       text-align: center;
       display: flex;
       flex-direction: column;

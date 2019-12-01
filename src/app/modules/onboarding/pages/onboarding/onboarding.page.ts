@@ -41,10 +41,11 @@ export class OnboardingPage implements OnInit {
   }
 
   loadOnboarding() {
-    ONBOARDING_PAGES.forEach(({ title, body }) => {
+    ONBOARDING_PAGES.forEach(({ title, body, backgroundImage }) => {
       this.onboardingItems.push({
         title,
         body,
+        backgroundImage
       })
     })
     this.sliderLength = this.onboardingItems.length;

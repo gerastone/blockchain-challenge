@@ -14,8 +14,6 @@
         flex-direction: column;
         position: relative;
         &-img {
-          padding: 10%;
-          background: var(--blockchain-terciary-color);
           &-image {
             height: 100%;
             width: 100%;
@@ -28,7 +26,7 @@
           height: 27%;
           width: 100%;
           padding: 35px;
-          position: absolute;
+          position: relative;
           background-color: var(--blockchain-white-color);
           bottom: 0;
           font-family: Roboto;
@@ -98,7 +96,7 @@
     &-next {
       min-height: 24px;
       min-width: 24px;
-      color: var( --blockchain-primary-color);
+      color: var(--blockchain-primary-color);
     }
 
     &-position {
