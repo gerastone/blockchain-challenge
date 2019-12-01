@@ -1,0 +1,28 @@
+<div class="account-validate">
+    <div class="account-validate-header">
+        <i class="icon-blockchain_icon account-validate-header-icon">
+        </i>
+        <div class="account-validate-header-title">
+            {{ 'LABELS.HELLO' | translate: { name: userName } }}
+        </div>
+        <div class="account-validate-header-info">
+            {{'LABELS.VALIDATE_ACCOUNT_INFO' | translate}}
+        </div>
+    </div>
+    <div class="account-validate-content">
+        <ion-item class="account-validate-content-item">
+            <ion-input [(ngModel)]="code.code" type="text" placeholder="{{'LABELS.CODE' | translate}}">
+            </ion-input>
+            <div (click)="openCardHelp()">
+                <ion-label class="account-validate-content-item-question">
+                    {{'LABELS.CODE_FIND' | translate}}
+                </ion-label>
+            </div>
+        </ion-item>
+        <div *ngIf="error != ''" class="account-validate-error">
+            {{error | translate }}
+        </div>
+        <blockchain-button (onClick)="sendCode()" class="account-validate-content-button" [icon]="'arrow_forward'"
+            [label]="'LABELS.SEND'">
+        </blockchain-button>
+    </div>

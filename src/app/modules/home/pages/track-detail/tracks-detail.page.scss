@@ -1,0 +1,122 @@
+.track-detail {
+  flex: 1;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(0deg, #ffffff 8%, #255eb1 85%);
+  &-header {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    &-logo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 5%;
+      &-app {
+        width: 128px;
+        height: 47px;
+      }
+      &-profile {
+        width: 45px;
+        height: 46px;
+      }
+    }
+    &-data {
+      display: flex;
+      flex-direction: row;
+      padding: 0 5%;
+      justify-content: space-between;
+      &-points {
+        display: flex;
+        font-family: Roboto;
+        font-size: 50px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #ffffff;
+        &-label {
+          margin-top: auto;
+          font-size: 20px;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: #ffffff;
+        }
+      }
+      &-button {
+        width: 50%;
+        height: 80%;
+        margin: auto 0;
+      }
+    }
+  }
+
+  &-collapse-card {
+    justify-content: space-between;
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    background: var(--blockchain-primary-color);
+    height: 35%;
+
+    &-title {
+      font-family: Roboto;
+      font-size: 20px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.48px;
+      margin: auto 0;
+      color: var(--blockchain-white-color);
+    }
+
+    &-button {
+      margin: auto 0;
+      height: 36px;
+      width: 36px;
+    }
+  }
+
+  &-content {
+    padding: 5%;
+    border-radius: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+
+    &-card {
+      padding: 5% 0;
+    }
+    &-list {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 5%;
+    }
+  }
+
+  &-fab {
+    &-button {
+      --background: var(--blockchain-primary-color);
+      font-size: x-large;
+      &-icon {
+        display: flex;
+        justify-content: flex-start;
+        margin: auto;
+      }
+    }
+  }
+}
+.icon-ic-scan-code:before {
+  display: flex;
+  margin-top: 15% !important;
+  margin-left: 5% !important;
+}

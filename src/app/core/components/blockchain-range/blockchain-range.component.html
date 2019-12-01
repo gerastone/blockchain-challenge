@@ -1,0 +1,6 @@
+<div class="blockchain">
+    <ion-label color="primary" class="blockchain-label">{{'FILTER.MAX_DISTANCE' | translate | uppercase}}</ion-label>
+    <ion-range id="range" [mode]="'md'" class="blockchain-range" [(ngModel)]="value" (ionChange)="changed($event)"
+        [value]="value" [min]="minValue" [max]="maxValue" [dualKnobs]="dualKnobs" pin #range>
+    </ion-range>
+</div>

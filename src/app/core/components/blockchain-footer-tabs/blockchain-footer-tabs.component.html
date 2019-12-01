@@ -1,0 +1,7 @@
+<div class="footer-tabs">
+    <div *ngFor="let option of options" class="footer-tabs-option" [ngClass]="option.active ? 'active' : ''"
+        (click)="changeTab(option)">
+        <i *ngIf="!option.ownIcon" class="material-icons">{{option.icon}}</i>
+        <i *ngIf="option.ownIcon" class="icon" [ngClass]="option.icon"></i>
+    </div>
+</div>

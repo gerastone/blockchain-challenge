@@ -1,0 +1,34 @@
+<ion-header class="filter-header">
+    <div class="filter-header-toolbar">
+        <div class="filter-header-toolbar-back" (click)="back($event)">
+            <i class="material-icons" >arrow_back_ios</i>
+        </div>
+        <div class="filter-header-toolbar-title">Filtrar</div>
+    </div>
+</ion-header>
+<ion-content>
+    <div class="filter-content">
+        <blockchain-checkbox *ngIf="loged" [bolderLabel]="true" [label]="'FILTER.ONLY_MY_MATCHES'"></blockchain-checkbox>
+        <blockchain-select [values]="labelsExample" label="FILTER.STUDY_TYPE"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.COUNTRY"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.CITY"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.HOSPITAL"></blockchain-select>
+        <blockchain-range [min]="0" [max]="1000"></blockchain-range>
+        <blockchain-checkbox *ngIf="loged" [label]="'FILTER.TRIAL_OUT_OF_COUNTRY'"></blockchain-checkbox>
+        <blockchain-select [values]="labelsExample" label="FILTER.AGE_RANGE"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.GENDER"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.SPECIAL_GROUPS"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.STUDY_PHASES"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.STUDY_STATE"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.STUDY_DURATION"></blockchain-select>
+        <blockchain-select [values]="labelsExample" label="FILTER.STUDY_DATES"></blockchain-select>
+
+        <div class="filter-content-essays-checkbox">
+            <blockchain-checkbox [label]="'FILTER.WEEK_TRIALS_USED'"></blockchain-checkbox>
+            <blockchain-checkbox [label]="'FILTER.MONTH_TRIALS_USED'"></blockchain-checkbox>
+        </div>
+
+        <blockchain-button class="filter-content-button" [disabled]="false" [label]="'FILTER.APPLY_FILTER'" [secondary]="true"></blockchain-button> <!-- TODO check if has any informed value to allow click-->
+    </div>
+
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-content>
+  <div class="onboarding">
+    <div class="onboarding-content">
+      <ion-slides class="onboarding-content-slides no-swiping sliders" [options]="slideOpts"
+        (ionSlideDidChange)="swipeEvent($event)" #slides>
+        <ion-slide *ngFor="let item of onboardingItems; let i = index">
+          <div class="onboarding-content-slides-item">
+            <div class="onboarding-content-slides-item-img">
+              <img class="onboarding-content-slides-item-img-image" [src]="backgroundImage">
+            </div>
+            <div class="onboarding-content-slides-item-info">
+              <div class="onboarding-content-slides-item-info-title">{{item.title | translate}}</div>
+              <div class="onboarding-content-slides-item-info-text">{{item.body | translate}}</div>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="onboarding-content-slides-item">
+            <div class="onboarding-content-slides-item-img">
+              <img class="onboarding-content-slides-item-img-image" [src]="backgroundImage">
+            </div>
+            <div class="onboarding-content-slides-item-login">
+              <div class="onboarding-content-slides-item-login-title">Título</div>
+              <blockchain-button class="onboarding-content-slides-item-login-button" [primary]="true"
+                [label]="'LABELS.LOGIN'" (click)="goLogin()"></blockchain-button>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div class="onboarding-navigator" *ngIf="actualIndex < onboardingItems.length">
+      <div class="onboarding-navigator-back">
+        <i class="material-icons" (click)="slidePrev()" *ngIf="actualIndex > 0">arrow_back</i>
+      </div>
+      <div class="onboarding-navigator-position">
+        <div class="onboarding-navigator-position-dot" [ngClass]="{'active' : actualIndex === i}"
+          *ngFor="let item of [].constructor(onboardingItems.length); let i = index"></div>
+      </div>
+      <div class="onboarding-navigator-next">
+        <i class="material-icons onboarding-navigator-next-icon" (click)="slideNext()">arrow_forward</i>
+      </div>
+    </div>
+    <div class="onboarding-explore" *ngIf="actualIndex === onboardingItems.length">
+      <div class="onboarding-explore-label">{{'ONBOARDING.NOT_PREPARED_TO_LOGIN' | translate}}</div>
+      <div class="onboarding-explore-button" (click)="exploreApp()">{{'ONBOARDING.EXPLORE_APP' | translate}}.</div>
+    </div>
+  </div>
+</ion-content>

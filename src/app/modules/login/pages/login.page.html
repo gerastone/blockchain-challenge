@@ -1,0 +1,40 @@
+<div class="login">
+    <div class="login-header">
+        <i class="icon-blockchain_icon login-header-icon">
+        </i>
+        <div class="login-header-title">
+            {{'LABELS.WELCOME' | translate}}
+        </div>
+    </div>
+    <div class="login-content">
+        <ion-item class="login-content-item">
+            <ion-input [(ngModel)]="login.username" type="email" placeholder="{{'LABELS.EMAIL' | translate}}"></ion-input>
+        </ion-item>
+        <ion-item class="login-content-item">
+            <ion-input [(ngModel)]="login.password" type="password" placeholder="{{'LABELS.PASSWORD' | translate}}">
+            </ion-input>
+        </ion-item>
+        <div *ngIf="error != ''" class="login-error">
+            {{error}}
+        </div>
+        <div class="login-footer-content" (click)="goToRecover()">
+            <div class="login-footer-content-title">
+                {{'LABELS.RECOVER_PASSWORD_QUESTION' | translate}}
+            </div>
+            <div class="login-footer-content-subtitle">
+                {{'LABELS.RECOVER_PASSWORD_RECOVER' | translate}}
+            </div>
+        </div>
+        <blockchain-button (onClick)="doLogin()" class="login-content-button" [label]="'LABELS.LOGIN'">
+        </blockchain-button>
+    </div>
+    <div class="login-footer">
+        <div class="login-footer-content" (click)="goToRegister()">
+            <div class="login-footer-content-title">
+                {{'LABELS.NO_ACCOUNT' | translate}}
+            </div>
+            <div class="login-footer-content-subtitle">
+                {{'LABELS.REGISTER' | translate}}
+            </div>
+        </div>
+    </div>

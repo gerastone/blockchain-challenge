@@ -1,0 +1,47 @@
+<div class="register">
+    <div class="register-header">
+        <i (click)="goToLogin()" class="material-icons register-header-close">close</i>
+        <i class="icon-blockchain_icon register-header-icon">
+        </i>
+        <div class="register-header-title">
+            {{'LABELS.WELCOME' | translate}}
+        </div>
+    </div>
+    <div class="register-content">
+        <ion-item class="register-content-item">
+            <ion-input [(ngModel)]="registerModel.first_name" type="text" placeholder="{{'LABELS.NAME' | translate}}">
+            </ion-input>
+        </ion-item>
+        <ion-item class="register-content-item">
+            <ion-input type="email" [(ngModel)]="registerModel.email" placeholder="{{'LABELS.EMAIL' | translate}}">
+            </ion-input>
+        </ion-item>
+        <ion-item class="register-content-item">
+            <ion-input type="password" [(ngModel)]="registerModel.password"
+                placeholder="{{'LABELS.PASSWORD' | translate}}"></ion-input>
+        </ion-item>
+        <ion-item class="register-content-item">
+            <ion-input type="password" [(ngModel)]="confirmPassword"
+                placeholder="{{'LABELS.CONFIRM_PASSWORD' | translate}}"></ion-input>
+        </ion-item>
+        <div class="register-content-checkbox">
+            <ion-checkbox class="register-content-checkbox-display" [(ngModel)]="terms"></ion-checkbox>
+            <div class="register-content-checkbox-label">{{'LABELS.LEGAL_TERMS_ACCEPTANCE' | translate}}</div>
+            <div class="register-content-checkbox-label-link">{{'LABELS.LEGAL_TERMS' | translate}}</div>
+        </div>
+        <div *ngIf="error != ''" class="register-error">
+            {{error}}
+        </div>
+        <blockchain-button class="register-content-button" [label]="'LABELS.CREATE_ACCOUNT'" (onClick)="register()">
+        </blockchain-button>
+    </div>
+    <div class="register-footer">
+        <div class="register-footer-content" (click)="exploreApp()">
+            <div class="register-footer-content-title">
+                {{'LABELS.NO_READY' | translate}}
+            </div>
+            <div class="register-footer-content-subtitle">
+                {{'LABELS.EXPLORE_APP' | translate}}
+            </div>
+        </div>
+    </div>

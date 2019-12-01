@@ -1,0 +1,7 @@
+<ion-item class="select" [ngClass]="{'selectedOpt': selectedValue}"  lines="none" class="select">
+    <ion-label class="select-label" position="floating">{{label | translate}}</ion-label>
+    <ion-select class="select-select" [ngClass]="{'selectedOpt': selectedValue}" (ionChange)="optionSelected($event)">
+        <ion-select-option class="select-select-option" *ngFor="let value of values"
+            [value]="value"> {{value | translate}}</ion-select-option>
+    </ion-select>
+</ion-item>

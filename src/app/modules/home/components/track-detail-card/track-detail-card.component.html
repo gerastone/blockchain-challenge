@@ -1,0 +1,15 @@
+<ion-card class="recycle-card">
+    <div class="recycle-card-content">
+        <img [src]="icon" class="recycle-card-icon-img">
+
+        <div class="recycle-card-info">
+            <div class="recycle-card-info-title">
+                {{type | translate}}
+            </div>
+            <div class="recycle-card-info-date">
+                {{time}}
+            </div>
+        </div>
+    </div>
+    <ion-badge class="recycle-card-badge">{{state | translate}}</ion-badge>
+</ion-card>

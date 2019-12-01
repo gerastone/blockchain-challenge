@@ -1,0 +1,37 @@
+.select{
+    --background-activated: transparent;
+    --background: transparent;
+    --color: var(--blockchain-white-color);
+    --color-activated:var(--blockchain-white-color);
+    --padding-start: 0;
+    --ripple-color: transparent;
+ 
+    border-bottom: solid 1px;
+    border-bottom-color: rgba(var(--blockchain-white-color-rgb), 0.8);
+
+    &-label {
+        --opacity: 1
+    }
+    &-placeholder {
+        opacity: 0;
+        --color: var(--blockchain-white-color);
+        color:white;
+    }
+    
+    .select-text {
+        min-width: 16px;
+        font-size: inherit;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1 1 0%;
+        overflow: hidden;
+        --color: white !important;
+    }
+    
+}
+
+.selectedOpt {
+    color: var(--blockchain-terciary-color);
+    border-bottom-color: var(--blockchain-terciary-color)
+}
+

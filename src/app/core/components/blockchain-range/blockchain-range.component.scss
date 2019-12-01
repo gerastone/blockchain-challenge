@@ -1,0 +1,41 @@
+.blockchain {
+
+    --ion-color-primary: white;
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    margin: 28px 0;
+
+    &-label {
+        margin-bottom: 10%;
+    }
+
+
+    .item-native {
+        padding-left: 0px;
+        padding-right: 0px;
+
+        &-inner {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+
+    &-range {
+        --bar-background-active: var( --blockchain-rangebar-color);
+        --bar-background: var(--blockchain-white-color);
+        --bar-border-radius: 8px;
+        --knob-background: var(--blockchain-white-color);
+        --knob-color: var(--blockchain-white-color);
+        --knob-size: 42px;
+        --knob-handle-size: 40px;
+        --pin-background: transparent;
+        --pin-color: var(--blockchain-white-color);
+        padding: 0 8px;
+        height: 15px;
+        width: 100%;
+        margin-top: 3%;
+    
+    }
+}
+

@@ -1,0 +1,56 @@
+<div class="profile">
+  <div class="profile-header">
+    <div class="profile-header-labels">
+      <div class="profile-header-labels-title">
+        {{'PROFILE.TITLE' | translate}}
+      </div>
+      <div class="profile-header-labels-logout" *ngIf="loged" (click)="logout()">
+        {{'LABELS.LOGOUT' | translate}}
+      </div>
+
+    </div>
+    <div class="separator">
+    </div>
+  </div>
+
+  <div class="profile-not-registered-content" *ngIf="!loged">
+    <div class="profile-not-registered-content-container">
+      <div class="profile-not-registered-content-container-icon">
+        <i class="material-icons">room</i>
+      </div>
+      <div class="profile-not-registered-content-container-info">
+        {{'PROFILE.NOT_REGISTERED_INFO' | translate}}
+      </div>
+      <div class="profile-not-registered-content-container-button">
+        <blockchain-button (click)="createAccount()" [label]="'LABELS.CREATE_ACCOUNT'">
+        </blockchain-button>
+      </div>
+    </div>
+  </div>
+  <div class="profile-content-container" *ngIf="loged && user">
+    <div class="profile-content-container-info">
+      <div class="profile-content-container-info-avatar">
+        <ion-avatar class="profile-content-container-info-avatar-img">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+      </div>
+      <div class="profile-content-container-info-details">
+        <div class="profile-content-container-info-details-name">{{user.name + ' ' + user.surname}}</div>
+        <div class="profile-content-container-info-details-email">{{user.email}}</div>
+        <div class="profile-content-container-info-details-phone">{{user.phone}}</div>
+      </div>
+    </div>
+    <div class="profile-content-container-options">
+      <ion-item class="profile-content-container-options-item" detail>
+        <ion-label class="profile-content-container-options-item-label">
+          {{'PROFILE.CHANGE_PHONE' | translate}}
+        </ion-label>
+      </ion-item>
+      <ion-item class="profile-content-container-options-item" detail>
+        <ion-label class="profile-content-container-options-item-label" (click)="changePassword()">
+          {{'PROFILE.CHANGE_PASSWORD' | translate}}
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+</div>

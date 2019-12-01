@@ -1,0 +1,52 @@
+.filter {
+    &-content {
+        height: 100%;
+        padding: 35px 25px 35px 35px;
+        background-color: var(--blockchain-primary-color);
+        overflow-y: scroll;
+
+        * {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-button {
+            height: 48px;
+            margin: 0 2%;
+        }
+
+        &-essays-checkbox {
+            margin: 5% 0 10% 0;
+        }
+    }
+    &-header {
+        height: 44px;
+        
+        &-toolbar {
+            align-items: center;
+            background: var(--blockchain-primary-color);
+            border: none;
+            color: var(--blockchain-white-color);
+            display: flex;
+            flex-direction: row;
+            height: 44px;
+            width: 100%;
+    
+            &-back {
+                width: 15%;
+                display: flex;
+                justify-content: center;
+            }
+
+            &-title {
+                width: 85%;
+                font-size: 20px;
+                font-family: Roboto;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                margin-right: 15%;
+            }
+        }
+    }
+}

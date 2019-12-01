@@ -1,0 +1,36 @@
+.blockchain {
+
+    --background-activated: transparent;
+    --background: transparent;
+    --color: var(--blockchain-white-color);
+    --color-activated:var(--blockchain-white-color);
+    --padding-start: 0;
+    --ripple-color: transparent;
+
+    &-label {
+        margin-left: 9px;
+        font-size: 12px;
+        font-family: Roboto;
+    }
+
+
+    .item-native {
+        padding-left: 0px;
+        padding-right: 0px;
+
+        &-inner {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+
+    &-checkbox {
+        --border-color: #febc2e;
+        --border-color-checked: #febc2e;
+        --background: transparent;
+        --background-checked: #febc2e;
+        --color-activated: transparent;
+        --checkmark-color: #3632a9;
+    }
+}
+

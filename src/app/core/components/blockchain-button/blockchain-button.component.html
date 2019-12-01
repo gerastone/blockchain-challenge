@@ -1,0 +1,6 @@
+<button class="blockchain-button" [ngClass]="{'primary': primary, 'secondary': secondary, 'transparent': transparent, 'disabled': disabled}" [disabled]="disabled"
+    (click)="onClick($event)">
+    {{ label | translate }}
+    <i class="material-icons">{{icon}}</i>
+    <ng-content></ng-content>
+</button>

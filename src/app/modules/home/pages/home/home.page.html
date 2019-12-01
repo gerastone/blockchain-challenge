@@ -1,0 +1,32 @@
+<div class="home">
+  <div class="home-header">
+    <div class="home-header-logo">
+      <img src="assets/imgs/img-logo@2x.png" class="home-header-logo-app">
+      <img src="assets/imgs/img_avatar@2x.png" class="home-header-logo-profile">
+    </div>
+    <div class="home-header-data">
+      <div class="home-header-data-points">
+        4000
+        <div class="home-header-data-points-label">PTS</div>
+      </div>
+      <div class="home-header-data-button">
+        <blockchain-button [label]="'LABELS.EXCHANGE'">
+        </blockchain-button>
+      </div>
+    </div>
+  </div>
+
+  <ion-content class="home-content">
+    <div class="home-content-list">
+      <recycle-card *ngFor="let track of trackList" [track]="track" class="home-content-list-card">
+      </recycle-card>
+    </div>
+    <ion-fab class="home-fab" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button class="home-fab-button">
+        <i class="icon-ic-scan-code home-fab-button-icon"></i>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+
+
+</div>
