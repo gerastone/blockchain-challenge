@@ -1,6 +1,7 @@
 <div class="track-detail">
-  <div class="track-detail-header">
+  <div class="track-detail-header" [ngClass]="trackClass">
     <div class="track-detail-header-logo">
+      <i class="icon-bt-back-white" (click)="goBack()"></i>
     </div>
     <div class="track-detail-header-data">
       <div class="track-detail-header-data-points">

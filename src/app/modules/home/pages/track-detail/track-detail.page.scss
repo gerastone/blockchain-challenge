@@ -9,7 +9,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    &.rest{
+      background: #838487;
+    }
+    &.glass{
+      background: #67C62E;
+    }
+    &.plastic{
+      background: #f7c033;
+    }
+    &.organic{
+      background: #965A28;
+    }
+    &.paper{
+      background:  #2C64D6;
+    }
     &-logo {
+      color: white;
+      font-size: x-large;
       display: flex;
       flex-direction: row;
       justify-content: space-between;

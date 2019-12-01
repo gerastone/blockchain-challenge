@@ -9,6 +9,7 @@ import { TrackListAction, TrackIdAction } from '../../store/actions/home.action'
 import { Subscription } from 'rxjs';
 import * as moment from 'moment';
 import { storageState } from 'src/app/core/store/selectors/utility.selector';
+import { RouterGo } from 'src/app/core/store/actions/utility.action';
 
 @Component({
   selector: 'app-track-detail',
@@ -19,6 +20,7 @@ export class TrackDetailPage {
   loadingEvent: any = null;
   home$ = this.store.select(homeState);
   subscription: Subscription;
+  trackClass = '';
   timeline = 'assets/imgs/img_timeline_1@3x.png'
   time_first_state = '';
   time_second_state = '';
@@ -42,6 +44,7 @@ export class TrackDetailPage {
   ngOnInit() {
     this.utilitySubscription = this.storage$.subscribe(result => {
       if (result['track'] != null) {
+        this.setClassColor(result['track'])
         this.store.dispatch(new TrackIdAction(result['track'].id))
       }
     })
@@ -83,7 +86,31 @@ export class TrackDetailPage {
     this.subscription.unsubscribe();
   }
 
+  setClassColor(track) {
+    switch (track.trashType) {
+      case 1:
+        this.trackClass = 'organic'
 
+        break;
+      case 2:
+        this.trackClass = 'plastic'
+        break;
+      case 3:
+        this.trackClass = 'paper'
+        break;
+      case 4:
+        this.trackClass = 'rest'
+        break;
+      case 5:
+        this.trackClass = 'glass'
+        break;
+    }
+  }
 
+  goBack() {
+    this.store.dispatch(new RouterGo({
+      to: { path: 'home' },
+    }))
+  }
 
 }
