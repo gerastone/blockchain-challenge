@@ -27,7 +27,10 @@ export class HomeEffects {
         ofType(EHomeActions.GET_TRACK_LIST_ACTION),
         map((payload: any) => {
             this.homeService.list(payload.payload, false).subscribe((response: any) => {
-                return this.store.dispatch(new TrackListActionSuccess(response[0].data.home.tracks));
+                return this.store.dispatch(new TrackListActionSuccess({
+                    balance: response[0].data.home.userPoints,
+                    tracks: response[0].data.home.tracks
+                }));
             }, error => {
                 return this.store.dispatch(new TrackListActionError(error));
             })
