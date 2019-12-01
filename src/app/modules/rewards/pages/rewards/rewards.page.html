@@ -1,0 +1,21 @@
+<div class="rewards">
+  <div class="rewards-header" [ngClass]="trackClass">
+    <div class="rewards-header-logo">
+      <i class="icon-bt-back-white" (click)="goBack()"></i>
+    </div>
+    <div class="rewards-header-data">
+      <div class="rewards-header-data-tab" [ngClass]="donations && 'active'" (click)="donations=true">
+        {{'LABELS.DONACIONS' | translate}}
+      </div>
+      <div class="rewards-header-data-tab" [ngClass]="!donations && 'active'" (click)="donations=false">
+        {{'LABELS.BONIFICACIONS' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <ion-content class="rewards-content">
+    <donations-card></donations-card>
+  </ion-content>
+
+
+</div>
