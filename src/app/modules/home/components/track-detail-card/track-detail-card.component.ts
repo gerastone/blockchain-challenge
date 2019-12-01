@@ -8,7 +8,7 @@ import * as moment from 'moment';
 export class TrackDetailCard {
     @Input('icon') icon: any;
     @Input('state') state: any;
-    @Input('valid') valid: any;
+    @Input('valid') valid: boolean = false;
     @Input('time') time: any;
 
     constructor() { }

@@ -48,7 +48,8 @@
         "SCANNED_PROCESS": "Residu escanejat",
         "IN_CONTAINER_PROCESS": "Al contenidor",
         "COLLECTED_PROCESS": "Residu recollit",
-        "RECICLED_PROCESS": "Residu reciclat"
+        "RECICLED_PROCESS": "Residu reciclat",
+        "VALID": "Valid"
     },
     "TRASH": {
         "GLASS": "Vidre",

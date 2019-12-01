@@ -24,6 +24,10 @@ export class TrackDetailPage {
   time_second_state = '';
   time_third_state = '';
   time_last_state = '';
+  valid_first_state = false;
+  valid_second_state = false;
+  valid_third_state = false;
+  valid_last_state = false;
   track: any;
   utilitySubscription: Subscription;
   storage$ = this.store.select(storageState);
@@ -54,16 +58,20 @@ export class TrackDetailPage {
   checkTrack() {
     console.log(this.track);
     if (this.track.states.length > 0) {
+      this.valid_first_state = true
       this.time_first_state = moment(new Date(this.track.states[0].timestamp)).format('DD/MM/YYYY');
       if (this.track.states.length > 1) {
         this.time_second_state = moment(new Date(this.track.states[1].timestamp)).format('DD/MM/YYYY');
+        this.valid_second_state = true
         this.timeline = 'assets/imgs/img_timeline_2@3x.png'
       }
       if (this.track.states.length > 2) {
+        this.valid_third_state = true
         this.time_third_state = moment(new Date(this.track.states[2].timestamp)).format('DD/MM/YYYY');
         this.timeline = 'assets/imgs/img_timeline_3@3x.png'
       }
       if (this.track.states.length > 3) {
+        this.valid_last_state = true
         this.time_last_state = moment(new Date(this.track.states[3].timestamp)).format('DD/MM/YYYY');
         this.timeline = 'assets/imgs/img_timeline_4@3x.png'
       }
