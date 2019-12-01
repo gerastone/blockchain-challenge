@@ -7,7 +7,13 @@ export enum EHomeActions {
     GET_TRACK_LIST_ERROR = '[Home] Track List Error',
     GET_TRACK_ID = '[Home] TRACK',
     GET_TRACK_ID_SUCCESS = '[Home] TRACK Success',
-    GET_TRACK_ID_ERROR = '[Home] TRACK Error'
+    GET_TRACK_ID_ERROR = '[Home] TRACK Error',
+    GET_BALANCE_ACTION = '[Home] Get Balance',
+    GET_BALANCE_SUCCESS = '[Home] Get Balance Success',
+    GET_BALANCE_ERROR = '[Home] Get Balance Error',
+    VALIDATE_ITEM_ACTION = '[Home] Validate Item',
+    VALIDATE_ITEM_SUCCESS = '[Home] Validate Item Success',
+    VALIDATE_ITEM_ERROR = '[Home] Validate Item Error'
 }
 
 export class TrackListAction implements Action {
@@ -40,6 +46,36 @@ export class TrackIdActionError implements Action {
     constructor(public payload: any) { }
 }
 
+export class BalanceAction implements Action {
+    readonly type = EHomeActions.GET_BALANCE_ACTION;
+    constructor(public payload?: any) { }
+}
+
+export class BalanceActionSuccess implements Action {
+    readonly type = EHomeActions.GET_BALANCE_SUCCESS;
+    constructor(public payload: any) { }
+}
+
+export class BalanceActionError implements Action {
+    readonly type = EHomeActions.GET_BALANCE_ERROR;
+    constructor(public payload: any) { }
+}
+
+export class ValidateItemAction implements Action {
+    readonly type = EHomeActions.VALIDATE_ITEM_ACTION;
+    constructor(public payload?: any) { }
+}
+
+export class ValidateItemActionSuccess implements Action {
+    readonly type = EHomeActions.VALIDATE_ITEM_SUCCESS;
+    constructor(public payload: any) { }
+}
+
+export class ValidateItemActionError implements Action {
+    readonly type = EHomeActions.VALIDATE_ITEM_ERROR;
+    constructor(public payload: any) { }
+}
+
 export type HomeUnionAction =
     | TrackListAction
     | TrackListActionSuccess
@@ -47,3 +83,9 @@ export type HomeUnionAction =
     | TrackIdAction
     | TrackIdActionSuccess
     | TrackIdActionError
+    | BalanceAction
+    | BalanceActionSuccess
+    | BalanceActionError
+    | ValidateItemAction
+    | ValidateItemActionSuccess
+    | ValidateItemActionError

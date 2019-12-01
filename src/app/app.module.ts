@@ -16,6 +16,7 @@ import { IAppState } from './core/store/state/app.state';
 import { UtilityEffects } from './core/store/effects/utility.effects';
 import { Animation, NavOptions } from '@ionic/core';
 import { QueueApi } from '@ionic/core/dist/types/stencil.core';
+import { EthereumService } from './core/services/ethereum.service';
 
 
 export function logger(reducer: ActionReducer<IAppState>): any {
@@ -44,6 +45,7 @@ export const metaReducers: MetaReducer<IAppState>[] = [logger];
   providers: [
     StatusBar,
     SplashScreen,
+    EthereumService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]

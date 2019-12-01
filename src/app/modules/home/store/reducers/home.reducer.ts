@@ -35,6 +35,18 @@ export function homeReducers(state = initialHomeState, action: HomeActions.HomeU
                 ...state
             };
         }
+        case HomeActions.EHomeActions.GET_BALANCE_SUCCESS: {
+            return {
+                ...state,
+                balance: action.payload
+            };
+        }
+        case HomeActions.EHomeActions.GET_BALANCE_ERROR: {
+            return {
+                ...state,
+                balance: 0
+            };
+        }
         default: {
             {
                 return { ...state };

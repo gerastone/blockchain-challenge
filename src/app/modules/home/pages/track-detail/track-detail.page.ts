@@ -30,6 +30,14 @@ export class TrackDetailPage {
   valid_second_state = false;
   valid_third_state = false;
   valid_last_state = false;
+  id_first_state = 0;
+  id_second_state = 0;
+  id_third_state = 0;
+  id_last_state = 0;
+  id_first = 0;
+  id_second = 0;
+  id_third = 0;
+  id_last = 0;
   track: any;
   utilitySubscription: Subscription;
   storage$ = this.store.select(storageState);
@@ -62,20 +70,28 @@ export class TrackDetailPage {
     console.log(this.track);
     if (this.track.states.length > 0) {
       this.valid_first_state = true
-      this.time_first_state = moment(new Date(this.track.states[0].timestamp)).format('DD/MM/YYYY');
+      this.id_first = this.track.id;
+      this.id_first_state = this.track.states[0].state;
+      this.time_first_state = this.track.states[0].timestamp;
       if (this.track.states.length > 1) {
-        this.time_second_state = moment(new Date(this.track.states[1].timestamp)).format('DD/MM/YYYY');
+        this.id_second = this.track.id;
+        this.time_second_state = this.track.states[1].timestamp;
         this.valid_second_state = true
+        this.id_second_state = this.track.states[1].state;
         this.timeline = 'assets/imgs/img_timeline_2@3x.png'
       }
       if (this.track.states.length > 2) {
+        this.id_third = this.track.id;
         this.valid_third_state = true
-        this.time_third_state = moment(new Date(this.track.states[2].timestamp)).format('DD/MM/YYYY');
+        this.time_third_state = this.track.states[2].timestamp;
+        this.id_third_state = this.track.states[2].state;
         this.timeline = 'assets/imgs/img_timeline_3@3x.png'
       }
       if (this.track.states.length > 3) {
+        this.id_last = this.track.id;
         this.valid_last_state = true
-        this.time_last_state = moment(new Date(this.track.states[3].timestamp)).format('DD/MM/YYYY');
+        this.time_last_state = this.track.states[3].timestamp;
+        this.id_last_state = this.track.states[3].state;
         this.timeline = 'assets/imgs/img_timeline_4@3x.png'
       }
     }

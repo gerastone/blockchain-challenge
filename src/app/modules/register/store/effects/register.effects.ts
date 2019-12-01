@@ -8,6 +8,7 @@ import { RegisterService } from '../../services/register.service';
 import { RouterGo, ShowAlertAction } from 'src/app/core/store/actions/utility.action';
 import { LoginAction } from 'src/app/modules/login/store/actions/login.action';
 import { ValidationCodeService } from '../../services/validate-code.service';
+import { EthereumService } from 'src/app/core/services/ethereum.service';
 
 @Injectable()
 export class RegisterEffects {
@@ -15,7 +16,8 @@ export class RegisterEffects {
         private actions$: Actions,
         private store: Store<any>,
         private registerService: RegisterService,
-        private validationService: ValidationCodeService
+        private validationService: ValidationCodeService,
+        private ethereumService: EthereumService
     ) {
 
     }
@@ -24,7 +26,12 @@ export class RegisterEffects {
     register$ = this.actions$.pipe(
         ofType(ERegisterActions.REGISTER_ACTION),
         map((data: any) => {
-            this.registerService.create(data.payload.data).subscribe(response => {
+            let address = this.ethereumService.createAccount();
+            let body = {
+                ...data.payload.data,
+                address
+            }
+            this.registerService.create(body).subscribe(response => {
                 this.store.dispatch(new RegisterActionSuccess(response));
 
                 this.store.dispatch(new ShowAlertAction({ title: 'ALERT.SUCCESS', message: 'ALERT.REGISTRATION_SUCCESS' }));

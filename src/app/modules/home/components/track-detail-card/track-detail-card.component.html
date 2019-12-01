@@ -1,15 +1,20 @@
 <ion-card class="track-detail-card">
-    <div class="track-detail-card-content">
-        <img [src]="icon" class="track-detail-card-icon-img">
+  <div class="track-detail-card-content">
+    <img [src]="icon" class="track-detail-card-icon-img" />
 
-        <div class="track-detail-card-info">
-            <div class="track-detail-card-info-title">
-                {{state | translate}}
-            </div>
-            <div class="track-detail-card-info-date">
-                {{time}}
-            </div>
-        </div>
-        <ion-badge *ngIf="valid" class="track-detail-card-badge">{{'TRACK.VALID' | translate}}</ion-badge>
+    <div class="track-detail-card-info">
+      <div class="track-detail-card-info-title">
+        {{ state | translate }}
+      </div>
+      <div class="track-detail-card-info-date">
+        {{ getFormattedDate() }}
+      </div>
     </div>
+    <ion-badge
+      *ngIf="valid"
+      (click)="validate()"
+      class="track-detail-card-badge"
+      >{{ "TRACK.VALID" | translate }}</ion-badge
+    >
+  </div>
 </ion-card>
