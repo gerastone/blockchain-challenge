@@ -68,7 +68,8 @@ export class HomePage {
   scan() {
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
-      this.store.dispatch(new TrackScanAction({ ticketCode: barcodeData.text }))
+      if (barcodeData && barcodeData.text != '')
+        this.store.dispatch(new TrackScanAction({ ticketCode: barcodeData.text }))
     }).catch(err => {
       console.log('Error', err);
     });
