@@ -44,7 +44,11 @@
         "SCANNED": "ESCANEJAT",
         "IN_CONTAINER": "CONTENIDOR",
         "COLLECTED": "RECOLLIT",
-        "RECICLED": "RECICLAT"
+        "RECICLED": "RECICLAT",
+        "SCANNED_PROCESS": "Residu escanejat",
+        "IN_CONTAINER_PROCESS": "Al contenidor",
+        "COLLECTED_PROCESS": "Residu recollit",
+        "RECICLED_PROCESS": "Residu reciclat"
     },
     "TRASH": {
         "GLASS": "Vidre",

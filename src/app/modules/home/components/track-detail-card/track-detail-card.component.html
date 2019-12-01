@@ -1,15 +1,14 @@
-<ion-card class="recycle-card">
-    <div class="recycle-card-content">
-        <img [src]="icon" class="recycle-card-icon-img">
+<ion-card class="track-detail-card">
+    <div class="track-detail-card-content">
+        <img [src]="icon" class="track-detail-card-icon-img">
 
-        <div class="recycle-card-info">
-            <div class="recycle-card-info-title">
-                {{type | translate}}
+        <div class="track-detail-card-info">
+            <div class="track-detail-card-info-title">
+                {{state | translate}}
             </div>
-            <div class="recycle-card-info-date">
+            <div class="track-detail-card-info-date">
                 {{time}}
             </div>
         </div>
     </div>
-    <ion-badge class="recycle-card-badge">{{state | translate}}</ion-badge>
 </ion-card>

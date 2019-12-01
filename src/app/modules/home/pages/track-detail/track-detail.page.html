@@ -1,0 +1,35 @@
+<div class="track-detail">
+  <div class="track-detail-header">
+    <div class="track-detail-header-logo">
+    </div>
+    <div class="track-detail-header-data">
+      <div class="track-detail-header-data-points">
+        Envàs lleuger
+      </div>
+    </div>
+  </div>
+
+  <ion-content class="track-detail-content">
+    <div class="track-detail-content-body">
+      <div class="track-detail-content-time">
+        <img [src]="timeline">
+      </div>
+      <div class="track-detail-content-list">
+        <track-detail-card [icon]="'assets/imgs/ic_escanejat@3x.png'" [state]="'TRACK.SCANNED_PROCESS'"
+          [time]="time_first_state">
+        </track-detail-card>
+        <track-detail-card [icon]="'assets/imgs/ic_contenidor@3x.png'" [state]="'TRACK.IN_CONTAINER_PROCESS'"
+          [time]="time_second_state">
+        </track-detail-card>
+        <track-detail-card [icon]="'assets/imgs/ic_camio@3x.png'" [state]="'TRACK.COLLECTED_PROCESS'"
+          [time]="time_third_state">
+        </track-detail-card>
+        <track-detail-card [icon]="'assets/imgs/ic_reciclat@3x.png'" [state]="'TRACK.RECICLED_PROCESS'"
+          [time]="time_last_state">
+        </track-detail-card>
+      </div>
+    </div>
+  </ion-content>
+
+
+</div>

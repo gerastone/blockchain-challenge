@@ -9,12 +9,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { HomeEffects } from './store/effects/home.effects';
 import { HomeService } from './services/home.service';
 import { RecycleCard } from './components/recycle-card/recycle-card.component';
-import { TrackDetailPage } from './pages/track-detail/tracks-detail.page';
+import { TrackDetailPage } from './pages/track-detail/track-detail.page';
+import { TrackDetailCard } from './components/track-detail-card/track-detail-card.component';
+import { TrackService } from './services/tracks.service';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'home', component: HomePage },
-  { path: 'detail', component: TrackDetailPage }
+  { path: 'detail', component: TrackDetailPage}
 ];
 
 
@@ -28,15 +30,17 @@ const routes: Routes = [
     EffectsModule.forRoot([HomeEffects])
   ],
   declarations: [
-    HomePage, ,
+    HomePage,
     TrackDetailPage,
+    TrackDetailCard,
     RecycleCard
   ],
   exports: [
     RouterModule
   ],
   providers: [
-    HomeService
+    HomeService,
+    TrackService
   ]
 })
 export class HomePageModule { }

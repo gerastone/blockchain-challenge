@@ -18,7 +18,8 @@
 
   <ion-content class="home-content">
     <div class="home-content-list">
-      <recycle-card *ngFor="let track of trackList" [track]="track" class="home-content-list-card">
+      <recycle-card *ngFor="let track of trackList" [track]="track" class="home-content-list-card"
+        (click)="onTrackClicked(track)">
       </recycle-card>
     </div>
     <ion-fab class="home-fab" vertical="bottom" horizontal="center" slot="fixed">

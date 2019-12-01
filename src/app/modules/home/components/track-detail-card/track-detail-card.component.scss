@@ -1,4 +1,4 @@
-.recycle-card {
+.track-detail-card {
   padding: 5%;
   --background: var(--blockchain-white-color);
   border-radius: 6px;
@@ -9,7 +9,7 @@
   justify-content: space-around;
   &-content {
     display: flex;
-    width: 70%;
+    width: 100%;
     flex-direction: row;
   }
   &-icon {
@@ -24,11 +24,9 @@
     letter-spacing: -0.24px;
     color: var(--blockchain-primary-color);
     &-img {
-      width: 20%;
-    }
-    i {
-      margin: auto;
-      font-size: xx-large;
+      width: 46px;
+      height: 46px;
+      margin: auto 0;
     }
     &-info {
       margin: auto;

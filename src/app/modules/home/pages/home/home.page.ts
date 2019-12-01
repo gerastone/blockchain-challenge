@@ -7,6 +7,7 @@ import { AlertController } from '@ionic/angular';
 import { homeState } from '../../store/selectors/home.selector';
 import { TrackListAction } from '../../store/actions/home.action';
 import { Subscription } from 'rxjs';
+import { RouterGo } from 'src/app/core/store/actions/utility.action';
 
 @Component({
   selector: 'app-home',
@@ -36,6 +37,19 @@ export class HomePage {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onTrackClicked(track) {
+    this.store.dispatch(new RouterGo({
+      to: {
+        path: 'detail',
+        extras: { relativeTo: this.route }
+      },
+      params: {
+        key: 'track',
+        value: track
+      }
+    }));
   }
 
 
