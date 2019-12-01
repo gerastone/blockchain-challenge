@@ -11,10 +11,20 @@
       </div>
     </div>
     <ion-badge
-      *ngIf="valid"
+      *ngIf="valid && validated === 0"
       (click)="validate()"
       class="track-detail-card-badge"
       >{{ "TRACK.VALID" | translate }}</ion-badge
     >
+    <ion-icon
+      *ngIf="validated === 2"
+      name="checkmark-circle"
+      style="color: var(--blockchain-primary-color); font-size: xx-large; margin: auto 0;"
+    ></ion-icon>
+    <ion-icon
+      *ngIf="validated === 1"
+      name="close-circle"
+      style="color: red; font-size: xx-large; margin: auto 0;"
+    ></ion-icon>
   </div>
 </ion-card>

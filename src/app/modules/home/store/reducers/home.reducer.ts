@@ -47,6 +47,16 @@ export function homeReducers(state = initialHomeState, action: HomeActions.HomeU
                 balance: 0
             };
         }
+        case HomeActions.EHomeActions.VALIDATE_ITEM_SUCCESS: {
+            const validated = {
+                ...state.validated
+            };
+            validated[action.payload.time] = action.payload.result ? 2 : 1;
+            return {
+                ...state,
+                validated
+            };
+        }
         default: {
             {
                 return { ...state };
