@@ -7,7 +7,10 @@ export enum EHomeActions {
     GET_TRACK_LIST_ERROR = '[Home] Track List Error',
     GET_TRACK_ID = '[Home] TRACK',
     GET_TRACK_ID_SUCCESS = '[Home] TRACK Success',
-    GET_TRACK_ID_ERROR = '[Home] TRACK Error'
+    GET_TRACK_ID_ERROR = '[Home] TRACK Error',
+    TRACK_SCAN = '[Home] TRACK Scan',
+    TRACK_SCAN_SUCCESS = '[Home] TRACK Scan Success',
+    TRACK_SCAN_ERROR = '[Home] TRACK Scan Error'
 }
 
 export class TrackListAction implements Action {
@@ -40,6 +43,21 @@ export class TrackIdActionError implements Action {
     constructor(public payload: any) { }
 }
 
+export class TrackScanAction implements Action {
+    readonly type = EHomeActions.TRACK_SCAN;
+    constructor(public payload?: any) { }
+}
+
+export class TrackScanActionSuccess implements Action {
+    readonly type = EHomeActions.TRACK_SCAN_SUCCESS;
+    constructor(public payload: any) { }
+}
+
+export class TrackScanActionError implements Action {
+    readonly type = EHomeActions.TRACK_SCAN_ERROR;
+    constructor(public payload: any) { }
+}
+
 export type HomeUnionAction =
     | TrackListAction
     | TrackListActionSuccess
@@ -47,3 +65,6 @@ export type HomeUnionAction =
     | TrackIdAction
     | TrackIdActionSuccess
     | TrackIdActionError
+    | TrackScanAction
+    | TrackScanActionSuccess
+    | TrackScanActionError
