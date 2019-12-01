@@ -23,8 +23,8 @@ export class ProfilePage {
 
   utilitySubscription: Subscription;
   profileSusbscription: Subscription;
-  user: IUser;
   loged: boolean;
+  user: any;
 
   constructor(private router: Router,
     private translateService: TranslateService,
@@ -34,77 +34,20 @@ export class ProfilePage {
   ngOnInit() {
     this.utilitySubscription = this.storage$.subscribe(result => {
 
-      this.loged = result && result['loged'] ? true : false
-      if (this.loged) {
-        this.store.dispatch(new ProfileAction())
-      }
-    });
-
-    this.profileSusbscription = this.profile$.subscribe(result => {
-      if (result && result.user) {
-        this.user = result.user;
+      this.user = result && result['user'];
+      if (this.user != null) {
+        this.user = result['user']
+        console.log(this.user);
       }
     });
   }
 
-  go() {
-    this.router.navigate(['onboarding'])
+  goLogout() {
+    localStorage.clear();
+    this.store.dispatch(new RouterGo({ to: { path: 'login' } }))
   }
-
-  logout() {
-    this.store.dispatch(new LogoutAction());
+  goBack() {
+    localStorage.clear();
+    this.store.dispatch(new RouterGo({ to: { path: 'home' } }))
   }
-
-  async changePassword() {
-    let alert = await this.alertCtrl.create({
-      header: this.translateService.instant('PROFILE.CHANGE_PASSWORD'),
-      inputs: [
-        {
-          name: 'currentPassword',
-          placeholder: this.translateService.instant('PROFILE.ACTUAL_PW'),
-          type: 'password'
-        },
-        {
-          name: 'newPassword',
-          placeholder: this.translateService.instant('PROFILE.NEW_PW'),
-          type: 'password'
-        },
-        {
-          name: 'confirmNewPassword',
-          placeholder: this.translateService.instant('PROFILE.NEW_PW_CONFIRM'),
-          type: 'password'
-        }
-      ],
-      buttons: [
-        {
-          text: this.translateService.instant('LABELS.CANCEL'),
-          cssClass: 'alert-button-primary-color-class',
-          role: 'cancel',
-          handler: () => {
-
-          }
-        },
-        {
-          text: this.translateService.instant('LABELS.ACCEPT'),
-          cssClass: 'alert-button-primary-color-class',
-          handler: (data) => {
-            if (data.newPassword && data.confirmNewPassword) {
-              this.store.dispatch(new ChangePwAction({ password: data.currentPassword, newPassword: data.newPassword }));
-            } else {
-              this.store.dispatch(new ShowAlertAction({ title: 'ALERT.ERROR', message: 'ERROR.CONFIRM_PASSWORD' }));
-            }
-          }
-        }
-      ]
-    });
-    await alert.present();
-  }
-
-
-  createAccount() {
-    this.store.dispatch(new RouterGo({
-      to: { path: 'register' }
-    }))
-  }
-
 }

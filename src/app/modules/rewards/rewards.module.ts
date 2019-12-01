@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RewardsPage } from './pages/rewards/rewards.page';
 import { CoreModule } from 'src/app/core/core.module';
 import { DonationsCard } from './components/donations-card/donations-card.component';
+import { BonificacionsCard } from './components/bonificacions-card/bonificacions-card.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   ],
   declarations: [
     RewardsPage,
-    DonationsCard
+    DonationsCard,
+    BonificacionsCard
   ],
   exports: [
     RouterModule

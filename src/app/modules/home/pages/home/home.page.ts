@@ -74,6 +74,22 @@ export class HomePage {
     });
   }
 
+  goToProfile() {
+    this.store.dispatch(new RouterGo({
+      to: {
+        path: 'profile'
+      }
+    }))
+  }
+
+  goToRewards() {
+    this.store.dispatch(new RouterGo({
+      to: {
+        path: 'rewards'
+      }
+    }))
+  }
+
 
 
 

@@ -1,7 +1,7 @@
 {
     "LABELS": {
         "LOGIN": "iniciar sessió",
-        "LOGOUT": "cerrar sessió",
+        "LOGOUT": "Tancar sessió",
         "CUSTOM_SEARCH": "Custom search",
         "CUSTOM_SEARCH_INFO": "Scan or add your diagnosis manually and find the most appropriate tests for you",
         "CREATE_ACCOUNT": "Crear compte",
