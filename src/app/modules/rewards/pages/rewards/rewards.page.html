@@ -13,8 +13,22 @@
     </div>
   </div>
 
-  <ion-content class="rewards-content">
-    <donations-card></donations-card>
+  <ion-content *ngIf="donations" class="rewards-content">
+    <donations-card [image]="'assets/imgs/img-donacion_1ampliada@3x.png'"></donations-card>
+    <donations-card [image]="'assets/imgs/img-donacion_3ampliada@3x.png'"></donations-card>
+    <donations-card [image]="'assets/imgs/img-donacion_4ampliada@3x.png'"></donations-card>
+  </ion-content>
+
+  <ion-content *ngIf="!donations" class="bonificacions-content">
+      <bonificacions-card></bonificacions-card>
+      <bonificacions-card></bonificacions-card>
+      <bonificacions-card></bonificacions-card>
+      <bonificacions-card></bonificacions-card>
+      <bonificacions-card></bonificacions-card>
+      <bonificacions-card></bonificacions-card>
+      <bonificacions-card></bonificacions-card>
+      <bonificacions-card></bonificacions-card>
+      <bonificacions-card></bonificacions-card>
   </ion-content>
 
 

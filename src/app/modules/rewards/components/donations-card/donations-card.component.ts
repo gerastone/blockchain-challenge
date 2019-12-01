@@ -6,6 +6,7 @@ import * as moment from 'moment';
     styleUrls: ['donations-card.component.scss'],
 })
 export class DonationsCard {
+    @Input('image')
     image = 'assets/imgs/img-donacion_1ampliada@3x.png'
     constructor() { }
 

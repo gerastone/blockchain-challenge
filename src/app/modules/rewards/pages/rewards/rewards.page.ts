@@ -34,10 +34,8 @@ export class RewardsPage {
   }
 
 
-
-
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
   goBack() {
