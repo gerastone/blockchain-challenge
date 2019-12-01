@@ -38,7 +38,10 @@
         "CODE_FIND": "On ho trobo?",
         "ACCEPT_AC": "D'acord",
         "HELLO": "Hola {{name}}",
-        "EXCHANGE": "Bescanviar"
+        "EXCHANGE": "Bescanviar",
+        "DONACIONS": "Donacions",
+        "BONIFICACIONS": "BONIFICACIONS",
+        "DONATE": "Donar"
     },
     "TRACK": {
         "SCANNED": "ESCANEJAT",
